@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los océanos | OCEANO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Imagen de fondo del banner: océano vasto */
+        body .banner {
+            background: linear-gradient(rgba(3, 27, 43, 0.55), rgba(3, 27, 43, 0.65)),
+                url('img/vast_ocean.jpg') no-repeat center center / cover !important;
+        }
+
+        /* Sección de datos clave */
+        .datos-clave {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .dato-clave {
+            background: linear-gradient(135deg, #f0f9fc, #e4f4f9);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            border-left: 4px solid #12a6a2;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .dato-clave:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(5, 40, 60, 0.12);
+        }
+
+        .dato-clave .dato-icono {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .dato-clave h4 {
+            color: #062b43;
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .dato-clave p {
+            color: #607682;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo">
+            <span>🌊</span>
+            OCEANO
+        </a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="oceanos.html" class="activo">Océanos</a></li>
+            <li><a href="vida-marina.html">Vida marina</a></li>
+            <li><a href="zonas.html">Zonas</a></li>
+            <li><a href="problemas.html">Problemas</a></li>
+            <li><a href="soluciones.html">Soluciones</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="banner">
+    <div class="banner-contenido">
+        <h1>Los grandes océanos</h1>
+        <p>
+            Cinco grandes masas de agua conectadas entre sí forman el
+            sistema oceánico global que cubre más del 70% de la superficie terrestre.
+        </p>
+    </div>
+</section>
+
+<section class="seccion">
+    <div class="encabezado">
+        <span class="mini">DATOS CLAVE</span>
+        <h2>El océano en números</h2>
+        <p>
+            Antes de explorar cada océano, estos datos ayudan a entender
+            la inmensidad y la importancia del sistema oceánico global.
+        </p>
+    </div>
+
+    <div class="datos-clave">
+        <div class="dato-clave aparecer">
+            <div class="dato-icono">🌍</div>
+            <h4>361 millones km²</h4>
+            <p>Superficie total que ocupan los océanos, equivalente a más del 70% de la Tierra.</p>
+        </div>
+
+        <div class="dato-clave aparecer">
+            <div class="dato-icono">📏</div>
+            <h4>Profundidad media: 3,688 m</h4>
+            <p>El punto más profundo conocido, la Fosa de las Marianas, alcanza los 10,994 metros.</p>
+        </div>
+
+        <div class="dato-clave aparecer">
+            <div class="dato-icono">🌡️</div>
+            <h4>Regulador del clima</h4>
+            <p>Los océanos absorben más del 90% del calor adicional generado por el efecto invernadero.</p>
+        </div>
+
+        <div class="dato-clave aparecer">
+            <div class="dato-icono">🫧</div>
+            <h4>50% del oxígeno</h4>
+            <p>El fitoplancton marino produce aproximadamente la mitad del oxígeno que respiramos.</p>
+        </div>
+    </div>
+</section>
+
+<section class="seccion">
+    <div class="encabezado">
+        <span class="mini">GEOGRAFÍA MARINA</span>
+        <h2>Los cinco océanos del mundo</h2>
+        <p>
+            Aunque forman un solo océano global interconectado, geográficamente
+            se dividen en cinco cuencas principales, cada una con características
+            propias que las distinguen.
+        </p>
+    </div>
+
+    <div class="tarjetas">
+        <article class="tarjeta aparecer">
+            <!-- Océano Pacífico (URL directa de Unsplash para evitar bloqueos) -->
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Océano Pacífico">
+            <div class="tarjeta-contenido">
+                <h3>01 · Océano Pacífico</h3>
+                <p>
+                    Es el océano más grande y profundo del planeta, con una superficie aproximada
+                    de 165 millones de km². Se extiende entre Asia, Oceanía y América. En él se
+                    encuentra la Fosa de las Marianas, la mayor profundidad conocida en la Tierra
+                    con casi 11,000 metros. Alberga el Cinturón de Fuego, una zona de intensa
+                    actividad volcánica y sísmica.
+                </p>
+            </div>
+        </article>
+
+        <article class="tarjeta aparecer">
+            <!-- Océano Atlántico -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOt1j68lUc6C-btydfn6unewxD10PlNAB44635lQIDpw&s=10" alt="Océano Atlántico">
+            <div class="tarjeta-contenido">
+                <h3>02 · Océano Atlántico</h3>
+                <p>
+                    Segundo en tamaño, se encuentra entre América, Europa y África. Cubre
+                    aproximadamente 106 millones de km² y es atravesado por la Dorsal
+                    Mesoatlántica, una cordillera submarina que recorre el fondo oceánico.
+                    Es fundamental para el comercio marítimo global y alberga ecosistemas
+                    como los Sargazos, una región única sin costas definidas.
+                </p>
+            </div>
+        </article>
+
+        <article class="tarjeta aparecer">
+            <!-- Océano Índico -->
+            <img src="https://cdn0.ecologiaverde.com/es/posts/5/6/8/oceano_indico_6865_orig.jpg" alt="Océano Índico">
+            <div class="tarjeta-contenido">
+                <h3>03 · Océano Índico</h3>
+                <p>
+                    Se localiza principalmente entre África, Asia y Australia, con una
+                    extensión de unos 70 millones de km². Sus aguas cálidas están fuertemente
+                    influenciadas por los sistemas de monzones que condicionan el clima regional.
+                    Es rico en biodiversidad marina y contiene importantes rutas de navegación
+                    utilizadas desde la antigüedad.
+                </p>
+            </div>
+        </article>
+
+        <article class="tarjeta aparecer">
+            <!-- Océano Antártico -->
+            <img src="https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto,f_auto,q_auto/v1689253721/Antarctica-Guides-Southern-Ocean/Antarctica-Guides-Southern-Ocean.jpg" alt="Océano Antártico">
+            <div class="tarjeta-contenido">
+                <h3>04 · Océano Antártico</h3>
+                <p>
+                    Rodea la Antártida y conecta las aguas del Pacífico, Atlántico e Índico.
+                    Fue reconocido oficialmente como el quinto océano en el año 2000. Sus frías
+                    corrientes, especialmente la Corriente Circumpolar Antártica, cumplen un
+                    papel crucial en la circulación oceánica global y en la regulación del clima
+                    de todo el planeta.
+                </p>
+            </div>
+        </article>
+
+        <article class="tarjeta aparecer">
+            <!-- Océano Ártico -->
+            <img src="https://humanidades.com/wp-content/uploads/2018/07/oceano-artico-1-e1571703926449.jpg" alt="Océano Ártico">
+            <div class="tarjeta-contenido">
+                <h3>05 · Océano Ártico</h3>
+                <p>
+                    Ubicado en la región del Polo Norte, es el más pequeño y somero de todos
+                    con aproximadamente 14 millones de km². Gran parte de su superficie
+                    permanece cubierta por hielo marino, aunque la extensión de este hielo
+                    ha disminuido significativamente en las últimas décadas. Es hogar de
+                    especies adaptadas al frío extremo como osos polares y morsas.
+                </p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<div class="cta">
+    <h2>Un mundo de vida bajo la superficie</h2>
+    <p>
+        Los océanos albergan desde el animal más grande del planeta, la ballena azul,
+        hasta organismos microscópicos que producen el oxígeno que respiramos.
+        Descubre la increíble diversidad de vida marina.
+    </p>
+    <a href="vida-marina.html" class="boton boton-secundario">
+        Explorar vida marina
+    </a>
+</div>
+
+<footer>
+    <div class="footer-contenido">
+        <div class="footer-col">
+            <h3>🌊 OCEANO</h3>
+            <p>Información educativa sobre los océanos y sus ecosistemas.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Explorar</h3>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="oceanos.html">Océanos</a></li>
+                <li><a href="zonas.html">Zonas</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Conservación</h3>
+            <ul>
+                <li><a href="problemas.html">Problemas</a></li>
+                <li><a href="soluciones.html">Soluciones</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        Proyecto #1 · CETIS 131 · 2026
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

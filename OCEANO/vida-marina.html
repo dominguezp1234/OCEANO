@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida marina | OCEANO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilo específico para forzar la imagen de fondo del banner */
+        .banner-vida-marina {
+            background: linear-gradient(rgba(3, 27, 43, 0.6), rgba(3, 27, 43, 0.6)),
+                url('img/school_of_fish.jpg') center/cover no-repeat !important;
+        }
+
+        /* Estilos del buscador y Modal */
+        .contenedor-buscador {
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+            position: relative;
+        }
+
+        .buscador-input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #bcd1df;
+            border-radius: 30px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .buscador-input:focus {
+            border-color: #12a6a2;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 27, 43, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeInModal 0.3s ease;
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-contenido {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            max-height: 85vh;
+            overflow-y: auto;
+            color: #172b3a;
+        }
+
+        .cerrar-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #637985;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .cerrar-modal:hover {
+            color: #062b43;
+        }
+
+        .modal-cargando {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 16px;
+            color: #12a6a2;
+            font-weight: 600;
+        }
+
+        #modal-imagen {
+            width: 100%;
+            max-height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        #modal-titulo {
+            color: #062b43;
+            font-size: 26px;
+            margin-bottom: 12px;
+            text-transform: capitalize;
+        }
+
+        #modal-descripcion {
+            color: #4a5d68;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .tarjeta {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <span>🌊</span>
+                OCEANO
+            </a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="oceanos.html">Océanos</a></li>
+                <li><a href="vida-marina.html" class="activo">Vida marina</a></li>
+                <li><a href="zonas.html">Zonas</a></li>
+                <li><a href="problemas.html">Problemas</a></li>
+                <li><a href="soluciones.html">Soluciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner banner-vida-marina">
+        <div class="banner-contenido">
+            <h1>Vida marina</h1>
+            <p>
+                Una enorme diversidad de organismos habita desde las aguas
+                superficiales hasta las regiones más profundas del océano.
+                Se estima que existen más de 230,000 especies conocidas,
+                pero podrían ser millones las que aún no hemos descubierto.
+            </p>
+        </div>
+    </section>
+
+    <section class="seccion">
+        <div class="encabezado">
+            <span class="mini">BIODIVERSIDAD</span>
+            <h2>La vida bajo el agua</h2>
+            <p>
+                Los ecosistemas marinos están formados por organismos muy
+                diferentes entre sí, desde pequeños microorganismos que producen
+                oxígeno hasta enormes mamíferos que recorren miles de kilómetros.
+                Juntos forman redes alimentarias complejas que mantienen
+                el equilibrio del océano.
+            </p>
+        </div>
+
+        <div class="contenedor-buscador">
+            <input type="text" id="buscador-especies" class="buscador-input"
+                placeholder="🔍 Escribe cualquier especie y presiona Enter..." autocomplete="off">
+        </div>
+
+        <div class="tarjetas" id="contenedor-tarjetas">
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=800&q=80"
+                    alt="Tiburón nadando">
+                <div class="tarjeta-contenido">
+                    <h3>🦈 Tiburones</h3>
+                    <p>
+                        Son peces cartilaginosos que cumplen funciones importantes
+                        como depredadores dentro de las cadenas alimentarias marinas.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=800&q=80"
+                    alt="Ballena en el océano">
+                <div class="tarjeta-contenido">
+                    <h3>🐋 Ballenas</h3>
+                    <p>
+                        Son mamíferos marinos que respiran aire y algunas especies
+                        realizan grandes migraciones entre diferentes regiones.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=800&q=80"
+                    alt="Tortuga marina nadando">
+                <div class="tarjeta-contenido">
+                    <h3>🐢 Tortugas marinas</h3>
+                    <p>
+                        Son reptiles adaptados a la vida marina. Algunas especies
+                        recorren enormes distancias durante sus migraciones.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=800&q=80"
+                    alt="Cardumen de peces">
+                <div class="tarjeta-contenido">
+                    <h3>🐠 Peces</h3>
+                    <p>
+                        Los peces representan uno de los grupos más diversos
+                        de vertebrados que habitan los ecosistemas acuáticos.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80"
+                    alt="Arrecife de coral multicolor">
+                <div class="tarjeta-contenido">
+                    <h3>🪸 Corales</h3>
+                    <p>
+                        Los arrecifes de coral proporcionan refugio y alimento
+                        a numerosas especies y son ecosistemas de gran diversidad.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+                    alt="Medusa flotando en el agua">
+                <div class="tarjeta-contenido">
+                    <h3>🪼 Medusas</h3>
+                    <p>
+                        Son animales marinos que existen desde hace millones
+                        de años y forman parte de numerosas cadenas alimentarias.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1570481662006-a3a1374699e8?auto=format&fit=crop&w=800&q=80"
+                    alt="Delfines saltando">
+                <div class="tarjeta-contenido">
+                    <h3>🐬 Delfines</h3>
+                    <p>
+                        Son mamíferos cetáceos caracterizados por su gran inteligencia,
+                        su comportamiento social y su avanzado sistema de ecolocalización.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?auto=format&fit=crop&w=800&q=80"
+                    alt="Pulpo bajo el agua">
+                <div class="tarjeta-contenido">
+                    <h3>🐙 Pulpos</h3>
+                    <p>
+                        Moluscos cefalópodos reconocidos por sus ocho brazos, su capacidad
+                        para camuflarse rápidamente y su notable astucia.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://oceantoursmexico.com/wp-content/uploads/2025/05/Manta-06.jpg"
+                    alt="Mantarraya nadando">
+                <div class="tarjeta-contenido">
+                    <h3>🪼 Mantarrayas</h3>
+                    <p>
+                        Grandes peces cartilaginosos que planean por el agua mediante
+                        amplias aletas pectorales, alimentándose de plancton.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://static.nationalgeographicla.com/files/styles/image_3200/public/thumbnail-aclean.jpg?w=1900&h=1069"
+                    alt="Caballito de mar">
+                <div class="tarjeta-contenido">
+                    <h3>🐴 Caballitos de mar</h3>
+                    <p>
+                        Peces pequeños con cabeza en forma de caballo y cola prensil
+                        que habitan entre las praderas marinas y los arrecifes.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Amphiprion_ocellaris_%28Clown_anemonefish%29_by_Nick_Hobgood.jpg"
+                    alt="Pez payaso en anémona">
+                <div class="tarjeta-contenido">
+                    <h3>🤡 Pez Payaso</h3>
+                    <p>
+                        Peces conocidos por su relación simbiótica con las anémonas
+                        marinas, protegiéndose mutuamente de posibles depredadores.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/JumpingOrca.jpg" alt="Orca en el océano">
+                <div class="tarjeta-contenido">
+                    <h3>🖤 Orcas</h3>
+                    <p>
+                        Los miembros más grandes de la familia de los delfines,
+                        revelados como cazadores estratégicos y altamente sociales.
+                    </p>
+                </div>
+            </article>
+
+            <article class="tarjeta aparecer">
+                <img src="https://images.unsplash.com/photo-1598439210625-5067c578f3f6?auto=format&fit=crop&w=800&q=80"
+                    alt="Pingüinos en la playa">
+                <div class="tarjeta-contenido">
+                    <h3>🐧 Pingüinos</h3>
+                    <p>
+                        Aves marinas no voladoras adaptadas al buceo ágil, habitando
+                        principalmente en las regiones del hemisferio sur.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <div class="cta">
+        <h2>Un ecosistema lleno de vida</h2>
+        <p>
+            La biodiversidad marina mantiene relaciones complejas entre
+            depredadores, presas, productores y descomponedores. Cada especie
+            cumple un papel esencial en el equilibrio del ecosistema.
+            Descubre cómo se organizan estos organismos según la profundidad.
+        </p>
+        <a href="zonas.html" class="boton boton-secundario">
+            Explorar las zonas del océano
+        </a>
+    </div>
+
+    <!-- VENTANA MODAL PARA MOSTRAR INFORMACIÓN -->
+    <div id="modal-especie" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <div id="modal-cargando" class="modal-cargando">Cargando información...</div>
+            <div id="modal-cuerpo" style="display: none;">
+                <img id="modal-imagen" src="" alt="Imagen de la especie">
+                <h2 id="modal-titulo"></h2>
+                <p id="modal-descripcion"></p>
+                <a id="modal-enlace" href="#" target="_blank" rel="noopener noreferrer"
+                    class="boton boton-principal">Ver artículo completo en Wikipedia</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-contenido">
+            <div class="footer-col">
+                <h3>🌊 OCEANO</h3>
+                <p>Información educativa sobre los océanos y sus ecosistemas.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="oceanos.html">Océanos</a></li>
+                    <li><a href="zonas.html">Zonas</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Conservación</h3>
+                <ul>
+                    <li><a href="problemas.html">Problemas</a></li>
+                    <li><a href="soluciones.html">Soluciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            Proyecto #1 · CETIS 131 · 2026
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <!-- SCRIPT BÚSQUEDA GLOBAL CUALQUIER ESPECIE CON VISTA PREVIA DINÁMICA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('modal-especie');
+            const cerrarModal = document.querySelector('.cerrar-modal');
+            const modalCargando = document.getElementById('modal-cargando');
+            const modalCuerpo = document.getElementById('modal-cuerpo');
+            const modalTitulo = document.getElementById('modal-titulo');
+            const modalImagen = document.getElementById('modal-imagen');
+            const modalDescripcion = document.getElementById('modal-descripcion');
+            const modalEnlace = document.getElementById('modal-enlace');
+            const buscadorInput = document.getElementById('buscador-especies');
+            const contenedorTarjetas = document.getElementById('contenedor-tarjetas');
+            const tarjetas = document.querySelectorAll('.tarjeta');
+
+            const mapaTérminos = {
+                'tiburones': 'Selachimorpha',
+                'ballenas': 'Balaenidae',
+                'tortugas marinas': 'Chelonioidea',
+                'medusas': 'Medusa_(animal)',
+                'delfines': 'Delphinidae',
+                'pulpos': 'Octopoda',
+                'mantarrayas': 'Manta_birostris',
+                'caballitos de mar': 'Hippocampus',
+                'pez payaso': 'Amphiprioninae',
+                'orcas': 'Orcinus_orca',
+                'pingüinos': 'Spheniscidae'
+            };
+
+            const imagenDefault = 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80';
+
+            // 1. Evento Clic en las tarjetas fijas iniciales
+            tarjetas.forEach(tarjeta => {
+                tarjeta.addEventListener('click', () => {
+                    const tituloTexto = tarjeta.querySelector('h3').textContent.replace(/[\u{1F300}-\u{1F9FF}]/gu, '').trim();
+                    const imagenTarjeta = tarjeta.querySelector('img').src;
+                    buscarCualquierEspecie(tituloTexto, imagenTarjeta);
+                });
+            });
+
+            // 2. Evento del Buscador: Filtra estáticas y genera tarjeta de Vista Previa si no hay coincidencia
+            buscadorInput.addEventListener('input', (e) => {
+                const termino = e.target.value.toLowerCase().trim();
+                let coincidenciaLocal = false;
+
+                // Filtrar visibilidad de las tarjetas fijas
+                tarjetas.forEach(tarjeta => {
+                    const titulo = tarjeta.querySelector('h3').textContent.toLowerCase();
+                    if (titulo.includes(termino)) {
+                        tarjeta.style.display = 'block';
+                        coincidenciaLocal = true;
+                    } else {
+                        tarjeta.style.display = 'none';
+                    }
+                });
+
+                // Remover tarjeta de vista previa anterior si existe
+                const tarjetaPreviewExistente = document.getElementById('tarjeta-preview-dinamica');
+                if (tarjetaPreviewExistente) {
+                    tarjetaPreviewExistente.remove();
+                }
+
+                // Si no coincide con ninguna tarjeta local y hay texto escrito, crea la tarjeta de vista previa
+                if (!coincidenciaLocal && termino.length > 0) {
+                    const nuevaTarjeta = document.createElement('article');
+                    nuevaTarjeta.id = 'tarjeta-preview-dinamica';
+                    nuevaTarjeta.className = 'tarjeta aparecer';
+                    nuevaTarjeta.innerHTML = `
+                    <img src="${imagenDefault}" alt="${e.target.value}">
+                    <div class="tarjeta-contenido">
+                        <h3>🔍 Buscar "${e.target.value}"</h3>
+                        <p>Haz clic aquí o presiona Enter para explorar la información de <strong>${e.target.value}</strong>.</p>
+                    </div>
+                `;
+
+                    nuevaTarjeta.addEventListener('click', () => {
+                        buscarCualquierEspecie(e.target.value.trim(), null);
+                    });
+
+                    contenedorTarjetas.appendChild(nuevaTarjeta);
+                }
+            });
+
+            // Evento para activar la búsqueda al presionar Enter
+            buscadorInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const terminoBuscado = buscadorInput.value.trim();
+                    if (terminoBuscado !== '') {
+                        buscarCualquierEspecie(terminoBuscado, null);
+                    }
+                }
+            });
+
+            // 3. Función principal: Consulta dinámicamente cualquier especie en Wikipedia
+            async function buscarCualquierEspecie(nombreEspecie, imagenPredefinida) {
+                modal.style.display = 'flex';
+                modalCargando.style.display = 'block';
+                modalCargando.textContent = `Buscando información sobre "${nombreEspecie}"...`;
+                modalCuerpo.style.display = 'none';
+
+                const clave = nombreEspecie.toLowerCase();
+                const terminoWiki = mapaTérminos[clave] || nombreEspecie;
+
+                modalTitulo.textContent = nombreEspecie;
+
+                const url = `https://es.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts|pageimages&exintro=1&explaintext=1&piprop=original|thumbnail&pithumbsize=600&titles=${encodeURIComponent(terminoWiki)}`;
+
+                try {
+                    const respuesta = await fetch(url);
+                    if (!respuesta.ok) throw new Error('Error de conexión');
+
+                    const datos = await respuesta.json();
+                    const paginas = datos.query.pages;
+                    const pageId = Object.keys(paginas)[0];
+
+                    if (pageId === "-1" || !paginas[pageId].extract) {
+                        await realizarBusquedaAbierta(nombreEspecie);
+                        return;
+                    }
+
+                    const info = paginas[pageId];
+                    modalDescripcion.textContent = info.extract;
+                    modalEnlace.href = `https://es.wikipedia.org/?curid=${pageId}`;
+
+                    if (imagenPredefinida) {
+                        modalImagen.src = imagenPredefinida;
+                    } else if (info.original && info.original.source) {
+                        modalImagen.src = info.original.source;
+                    } else if (info.thumbnail && info.thumbnail.source) {
+                        modalImagen.src = info.thumbnail.source;
+                    } else {
+                        modalImagen.src = imagenDefault;
+                    }
+
+                    modalImagen.style.display = 'block';
+
+                } catch (error) {
+                    modalDescripcion.textContent = `No pudimos obtener información precisa sobre "${nombreEspecie}". Asegúrate de escribir el nombre correctamente.`;
+                    modalImagen.src = imagenDefault;
+                    modalEnlace.href = `https://es.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(nombreEspecie)}`;
+                } finally {
+                    modalCargando.style.display = 'none';
+                    modalCuerpo.style.display = 'block';
+                }
+            }
+
+            async function realizarBusquedaAbierta(termino) {
+                const searchUrl = `https://es.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(termino)}&format=json&origin=*`;
+                const res = await fetch(searchUrl);
+                const data = await res.json();
+
+                if (data.query.search && data.query.search.length > 0) {
+                    const mejorCoincidencia = data.query.search[0].title;
+                    const urlDetalle = `https://es.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=extracts|pageimages&exintro=1&explaintext=1&piprop=thumbnail&pithumbsize=600&titles=${encodeURIComponent(mejorCoincidencia)}`;
+                    const resDetalle = await fetch(urlDetalle);
+                    const dataDetalle = await resDetalle.json();
+                    const pageId = Object.keys(dataDetalle.query.pages)[0];
+                    const info = dataDetalle.query.pages[pageId];
+
+                    modalTitulo.textContent = info.title;
+                    modalDescripcion.textContent = info.extract || 'Información sobre la especie.';
+                    modalEnlace.href = `https://es.wikipedia.org/?curid=${pageId}`;
+                    modalImagen.src = (info.thumbnail && info.thumbnail.source) ? info.thumbnail.source : imagenDefault;
+                } else {
+                    throw new Error('Especie no encontrada');
+                }
+            }
+
+            // Cierre del modal
+            cerrarModal.addEventListener('click', () => { modal.style.display = 'none'; });
+            window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+        });
+    </script>
+
+</body>
+
+</html>
